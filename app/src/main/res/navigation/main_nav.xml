@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/usersFragment">
+
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.example.usermvvm.ui.user.UserFragment"
+        android:label="movies_fragment"
+        tools:layout="@layout/user_fragment" >
+        <action
+            android:id="@+id/action_usersFragment_to_userDetailFragment"
+            app:destination="@id/userDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/userDetailFragment"
+        android:name="com.example.usermvvm.ui.userDetail.UserDetailFragment"
+        android:label="user_detail_fragment"
+        tools:layout="@layout/user_detail_fragment" >
+        <action
+            android:id="@+id/action_userDetailFragment_to_usersFragment"
+            app:destination="@id/usersFragment" />
+        <argument
+            android:name="CurrentUser"
+            app:argType="com.example.usermvvm.data.db.entities.ParcelableUser" />
+    </fragment>
+</navigation>
